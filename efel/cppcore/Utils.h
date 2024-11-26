@@ -25,7 +25,10 @@
 #include <algorithm>
 #include <numeric>
 #include <vector>
+#include <sstream>
+#include <string>
 #include <utility>
+#include "EfelExceptions.h"
 
 using std::vector;
 
@@ -54,9 +57,18 @@ double vec_median(vector<T> v);
 template <class T>
 double vec_mean(const vector<T> &v);
 
-std::pair<size_t, size_t> get_time_index(std::vector<double> &t, double startTime,
+void removeFirstISI(vector<double>& vec);
+
+std::pair<size_t, size_t> get_time_index(const std::vector<double> &t, double startTime,
                                      double endTime, double precisionThreshold);
-      
+
+vector<int> peaks_after_stim_start(const double stimstart,
+                           const vector<int>& peakindices,
+                           const vector<double>& t);
+
+vector<int> peaks_after_stim_start(const double stimstartindex,
+                           const vector<int>& peakindices);
+
 template <class ForwardIterator>
 ForwardIterator first_min_element(ForwardIterator first, ForwardIterator last) {
   ForwardIterator lowest = first;
@@ -85,8 +97,10 @@ inline void
 efel_assert(bool assertion, const char *message, const char *file, const int line)
 {
   if(!assertion){
-    printf("Assertion fired(%s:%d): %s\n", file, line, message);
-    exit(-1);
+    std::ostringstream os;
+    os << "Assertion fired(" << file << ":" << line << "): " << message;
+    std::string errorMsg = os.str();
+    throw EfelAssertionError(errorMsg);
   }
 }
 

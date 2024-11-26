@@ -7,13 +7,16 @@ First you need to import the module::
 
 To get a list with all the available eFeature names::
 
-    efel.getFeatureNames()
+    efel.get_feature_names()
 
-The python function to extract eFeatures is getFeatureValues(...).
+Note that the extra-cellular features, the bpap_attenuation feature and the check_ais_initiation feature are not listed above because they have to be used in a special way,
+as described `here <https://github.com/BlueBrain/eFEL/blob/master/examples/extracellular/extrafeats_example.ipynb>`__ for extra-cellular features, `here <https://github.com/BlueBrain/eFEL/blob/master/docs/source/eFeatures.rst#bpap_attenuation>`__ for bpap_attenuation feature and `here <https://github.com/BlueBrain/eFEL/blob/master/docs/source/eFeatures.rst#check_ais_initiation>`__ for check_ais_initiation feature.
+
+The python function to extract eFeatures is get_feature_values(...).
 Below is a short example on how to use this function.
 
 The code and example trace are available
-`here <https://github.com/BlueBrain/eFEL/blob/master/examples/basic/basic_example1.py>`_::
+`here <https://github.com/BlueBrain/eFEL/blob/master/examples/basic/basic_example1.py>`__::
 
     """Basic example 1 for eFEL"""
 
@@ -57,7 +60,7 @@ The code and example trace are available
 
         # Now we pass 'traces' to the efel and ask it to calculate the feature
         # values
-        traces_results = efel.getFeatureValues(traces,
+        traces_results = efel.get_feature_values(traces,
                                                ['AP_amplitude', 'voltage_base'])
 
         # The return value is a list of trace_results, every trace_results
@@ -65,8 +68,8 @@ The code and example trace are available
         for trace_results in traces_results:
             # trace_result is a dictionary, with as keys the requested eFeatures
             for feature_name, feature_values in trace_results.items():
-                print "Feature %s has the following values: %s" % \
-                    (feature_name, ', '.join([str(x) for x in feature_values]))
+                print("Feature %s has the following values: %s" % \
+                    (feature_name, ', '.join([str(x) for x in feature_values])))
 
 
     if __name__ == '__main__':
@@ -80,6 +83,6 @@ The output of this example is::
 This means that the eFEL found 5 action potentials in the voltage trace. The
 amplitudes of these APs are the result of the 'AP_amplitude' feature.
 
-The voltage before the start of the stimulis is measured by 'voltage_base'.
+The voltage before the start of the stimulus is measured by 'voltage_base'.
 
 Results are in mV.

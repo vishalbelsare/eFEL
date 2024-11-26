@@ -1,4 +1,3 @@
-from __future__ import print_function
 """Basic example 1 for eFEL"""
 
 import os
@@ -42,9 +41,12 @@ def main():
     # argument should be a list
     traces = [trace1]
 
+    # set the threshold for spike detection to -20 mV
+    efel.set_setting('Threshold', -20)
+
     # Now we pass 'traces' to the efel and ask it to calculate the feature
     # values
-    traces_results = efel.getFeatureValues(traces,
+    traces_results = efel.get_feature_values(traces,
                                            ['AP_amplitude', 'voltage_base'])
 
     # The return value is a list of trace_results, every trace_results

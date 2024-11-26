@@ -1,0 +1,88 @@
+LibV5:peak_indices	    	#LibV1:interpolate
+LibV1:doublet_ISI	#LibV1:peak_time
+LibV1:peak_voltage		    #LibV5:peak_indices
+LibV1:mean_frequency	    #LibV1:peak_time
+LibV1:peak_time 	#LibV5:peak_indices
+LibV1:time_to_first_spike   #LibV1:peak_time
+LibV1:adaptation_index 	    #LibV1:peak_time
+LibV1:adaptation_index2	#LibV1:peak_time
+LibV1:spike_width2	 	    #LibV5:min_AHP_indices
+LibV1:AP_width  #LibV5:peak_indices #LibV5:min_AHP_indices
+LibV1:AP_height             #LibV1:peak_voltage
+LibV1:AP_amplitude          #LibV5:AP_begin_indices #LibV1:peak_voltage
+LibV1:AHP_depth_abs_slow	#LibV5:peak_indices
+LibV1:AHP_slow_time         #LibV1:AHP_depth_abs_slow
+LibV1:time_constant
+LibV1:voltage_deflection
+LibV1:ohmic_input_resistance    #LibV1:voltage_deflection
+LibV1:maximum_voltage
+LibV1:minimum_voltage
+LibV1:interpolate
+LibV1:steady_state_voltage
+LibV3:depolarized_base
+LibV1:AHP_depth	#LibV5:voltage_base	#LibV5:min_AHP_values
+LibV2:AP_rise_indices       #LibV5:peak_indices     #LibV5:AP_begin_indices
+LibV2:AP_end_indices        #LibV5:peak_indices
+LibV2:AP_fall_indices       #LibV5:peak_indices     #LibV5:AP_begin_indices     #LibV2:AP_end_indices
+LibV2:AP_duration	        #LibV5:AP_begin_indices #LibV2:AP_end_indices
+LibV2:AP_duration_half_width	#LibV2:AP_rise_indices	#LibV2:AP_fall_indices
+LibV2:AP_rise_time	#LibV5:AP_begin_indices	#LibV5:peak_indices
+LibV2:AP_fall_time	#LibV5:peak_indices	#LibV2:AP_end_indices
+LibV2:AP_rise_rate	#LibV5:AP_begin_indices	#LibV5:peak_indices
+LibV2:AP_fall_rate	#LibV5:peak_indices	#LibV2:AP_end_indices
+LibV2:fast_AHP	#LibV5:AP_begin_indices	#LibV5:min_AHP_indices
+LibV2:AP_amplitude_change	#LibV1:AP_amplitude
+LibV2:AP_duration_change	#LibV2:AP_duration
+LibV2:AP_rise_rate_change	#LibV2:AP_rise_rate
+LibV2:AP_fall_rate_change	#LibV2:AP_fall_rate
+LibV2:fast_AHP_change	#LibV2:fast_AHP
+LibV2:AP_duration_half_width_change	#LibV2:AP_duration_half_width
+LibV2:steady_state_hyper
+LibV2:amp_drop_first_second	#LibV1:peak_voltage
+LibV2:amp_drop_first_last	#LibV1:peak_voltage
+LibV2:amp_drop_second_last	#LibV1:peak_voltage
+LibV2:max_amp_difference	#LibV1:peak_voltage
+LibV1:AP_amplitude_diff	#LibV1:AP_amplitude
+LibV1:AHP_depth_diff	#LibV1:AHP_depth
+LibV5:min_AHP_indices 	    #LibV5:peak_indices
+LibV5:min_AHP_values 	    #LibV5:min_AHP_indices
+LibV5:number_initial_spikes 	    #LibV1:peak_time
+LibV5:AP1_amp 	    #LibV1:AP_amplitude
+LibV5:APlast_amp 	    #LibV1:AP_amplitude
+LibV5:AP2_amp 	    #LibV1:AP_amplitude
+LibV5:AP1_peak 	    #LibV1:peak_voltage
+LibV5:AP2_peak 	    #LibV1:peak_voltage
+LibV5:AP2_AP1_diff 	    #LibV1:AP_amplitude
+LibV5:AP2_AP1_peak_diff 	    #LibV1:peak_voltage
+LibV5:AP1_width     #LibV5:spike_half_width
+LibV5:AP2_width     #LibV5:spike_half_width
+LibV5:AHP_depth_from_peak #LibV5:peak_indices #LibV5:min_AHP_indices
+LibV5:AHP_time_from_peak #LibV5:peak_indices #LibV5:min_AHP_indices
+LibV5:AHP1_depth_from_peak #LibV5:AHP_depth_from_peak
+LibV5:AHP2_depth_from_peak #LibV5:AHP_depth_from_peak
+LibV5:time_to_second_spike   #LibV1:peak_time
+LibV5:time_to_last_spike   #LibV1:peak_time
+LibV5:inv_time_to_first_spike   #LibV1:time_to_first_spike
+LibV5:spike_half_width 	    #LibV5:min_AHP_indices	#LibV5:peak_indices
+LibV5:AP_begin_indices      #LibV5:min_AHP_indices
+LibV5:AHP_depth_abs         #LibV5:min_AHP_values
+LibV5:AP_begin_width 	    #LibV5:min_AHP_indices	#LibV5:AP_begin_indices
+LibV5:AP_begin_voltage  #LibV5:AP_begin_indices
+LibV5:AP_begin_time     #LibV5:AP_begin_indices
+LibV5:AP1_begin_voltage  #LibV5:AP_begin_voltage
+LibV5:AP2_begin_voltage  #LibV5:AP_begin_voltage
+LibV5:AP1_begin_width  #LibV5:AP_begin_width
+LibV5:AP2_begin_width  #LibV5:AP_begin_width
+LibV5:voltage_deflection_begin
+LibV5:is_not_stuck #LibV1:peak_time
+LibV5:mean_AP_amplitude #LibV1:AP_amplitude
+LibV5:voltage_after_stim
+LibV5:AP2_AP1_begin_width_diff 	    #LibV5:AP_begin_width
+LibV5:AP_phaseslope #LibV5:AP_begin_indices
+LibV5:all_ISI_values #LibV1:peak_time
+LibV5:AP_amplitude_from_voltagebase #LibV5:voltage_base #LibV1:peak_voltage   
+LibV5:min_voltage_between_spikes #LibV5:peak_indices
+LibV5:voltage
+LibV5:steady_state_voltage_stimend
+LibV5:voltage_base
+LibV5:decay_time_constant_after_stim

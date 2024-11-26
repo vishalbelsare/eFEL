@@ -1,4 +1,4 @@
-<img src="docs/source/logo/eFELBanner.png"/>
+<img src="https://raw.githubusercontent.com/BlueBrain/eFEL/master/docs/source/logo/eFELBanner.png" alt="eFEL banner" />
 
 <table>
 <tr>
@@ -45,7 +45,15 @@
     <td>Gitter</td>
     <td>
         <a href="https://gitter.im/bluebrain/efel">
-        <img src="https://badges.gitter.im/Join%20Chat.svg"
+        <img src="https://badges.gitter.im/Join%20Chat.svg" />
+    </a>
+    </td>
+</tr>
+<tr>
+    <td>Citation</td>
+    <td>
+        <a href="https://doi.org/10.5281/zenodo.593869">
+        <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.593869.svg" alt="DOI"/>
     </a>
     </td>
 </tr>
@@ -65,22 +73,19 @@ the values to the user.
 
 The core of the library is written in C++, and a Python wrapper is included.
 At the moment we provide a way to automatically compile and install the library
-as a Python module. Instructions on how to compile the eFEL as a standalone C++ 
+as a Python module. Instructions on how to compile the eFEL as a standalone C++
 library can be found [here](http://efel.readthedocs.io/en/latest/installation.html#installing-the-c-standalone-library).
 
-News
-====
+How to cite
+===========
+When you use this eFEL software for your research, we ask you to cite it (this includes poster presentations) by referring to the "Cite this repository" button at the top of the repository page to get various citation formats, including APA and BibTeX.
 
-* 2021/08/25: We dropped support for Python 2.7. The eFEL code isn't automatically tested on 2.7 anymore.
-
-* 2016/01/17: We dropped support for Python 2.6. We're following the numpy and coverage module who also dropped support recently.
-For the moment eFEL still works with Python 2.6, you will just have to install the right (older) versions of the dependencies.
-The eFEL code isn't automatically tested on 2.6 anymore.
+For detailed citation information, please refer to the [CITATION.cff](./CITATION.cff) file.
 
 Requirements
 ============
 
-* [Python 3.4+](https://www.python.org/download/releases/3.4.3/)
+* [Python 3.9+](https://www.python.org/downloads/)
 * [Pip](https://pip.pypa.io) (installed by default in newer versions of Python)
 * C++ compiler that can be used by pip
 * [Numpy](http://www.numpy.org) (will be installed automatically by pip)
@@ -131,10 +136,19 @@ import efel
 To get a list with all the available feature names
 
 ```python
-efel.getFeatureNames()
+efel.get_feature_names()
 ```
 
-The python function to extract features is getFeatureValues(...).
+Note that the extra-cellular features, the bpap_attenuation feature and the check_ais_initiation feature are not listed above because they have to be used in a special way, as described [here](https://github.com/BlueBrain/eFEL/blob/master/examples/extracellular/extrafeats_example.ipynb) for extra-cellular features, [here](https://github.com/BlueBrain/eFEL/blob/master/docs/source/eFeatures.rst#bpap_attenuation) for bpap_attenuation feature and [here](https://github.com/BlueBrain/eFEL/blob/master/docs/source/eFeatures.rst#check_ais_initiation) for check_ais_initiation feature.
+
+To change the spike detection threshold setting (default is -20 mV)
+
+```python
+efel.set_setting('Threshold', -30)
+```
+For a full list of available settings, please refer to the [Setting class](./efel/settings.py)
+
+The python function to extract features is get_feature_values(...).
 Below is a short example on how to use this function. The code and example
 trace are available
 [here](https://github.com/BlueBrain/eFEL/blob/master/examples/basic/basic_example1.py)
@@ -180,9 +194,12 @@ def main():
     # argument should be a list
     traces = [trace1]
 
+    # set the threshold for spike detection to -20 mV
+    efel.set_setting('Threshold', -20)
+
     # Now we pass 'traces' to the efel and ask it to calculate the feature
     # values
-    traces_results = efel.getFeatureValues(traces,
+    traces_results = efel.get_feature_values(traces,
                                            ['AP_amplitude', 'voltage_base'])
 
     # The return value is a list of trace_results, every trace_results
@@ -190,8 +207,8 @@ def main():
     for trace_results in traces_results:
         # trace_result is a dictionary, with as keys the requested features
         for feature_name, feature_values in trace_results.items():
-            print "Feature %s has the following values: %s" % \
-                (feature_name, ', '.join([str(x) for x in feature_values]))
+            print("Feature %s has the following values: %s" %
+                (feature_name, ', '.join([str(x) for x in feature_values])))
 
 
 if __name__ == '__main__':
@@ -210,16 +227,16 @@ Results are in mV.
 
 Full documentation
 ==================
-The full documentation can be found [here](http://efel.readthedocs.io) 
+The full documentation can be found [here](http://efel.readthedocs.io)
 
 Funding
 =======
-This work has been partially funded by the European Union Seventh Framework Program (FP7/2007­2013) under grant agreement no. 604102 (HBP), 
-the European Union’s Horizon 2020 Framework Programme for Research and Innovation under the Specific Grant Agreement No. 720270, 785907 
-(Human Brain Project SGA1/SGA2) and by the EBRAINS research infrastructure, funded from the European Union’s Horizon 2020 Framework 
-Programme for Research and Innovation under the Specific Grant Agreement No. 945539 (Human Brain Project SGA3). 
-This project/research was supported by funding to the Blue Brain Project, a research center of the École polytechnique fédérale de 
+This work has been partially funded by the European Union Seventh Framework Program (FP7/2007­2013) under grant agreement no. 604102 (HBP),
+the European Union’s Horizon 2020 Framework Programme for Research and Innovation under the Specific Grant Agreement No. 720270, 785907
+(Human Brain Project SGA1/SGA2) and by the EBRAINS research infrastructure, funded from the European Union’s Horizon 2020 Framework
+Programme for Research and Innovation under the Specific Grant Agreement No. 945539 (Human Brain Project SGA3).
+This project/research was supported by funding to the Blue Brain Project, a research center of the École polytechnique fédérale de
 Lausanne (EPFL), from the Swiss government’s ETH Board of the Swiss Federal Institutes of Technology.
 
-Copyright (c) 2009-2022 Blue Brain Project/EPFL
+Copyright (c) 2009-2024 Blue Brain Project/EPFL
 
